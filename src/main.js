@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import TennetcnUI from 'tennetcn-ui'
 
 Vue.config.productionTip = false
+
+Vue.use(TennetcnUI)
 
 /* eslint-disable no-new */
 new Vue({
