@@ -14,7 +14,7 @@
             <tc-input :key="passwordType" ref="password" v-model="loginForm.password" :type="passwordType" placeholder="Password" name="password" tabindex="2" auto-complete="on" />
           </tc-form-item>
 
-          <tc-button :loading="loading" type="primary" class="loginButton">Login</tc-button>
+          <tc-button :loading="loading" type="primary" class="loginButton" @click="login">Login</tc-button>
         </div>
       </tc-form>
     </div>
@@ -32,6 +32,11 @@ export default {
       loading: false,
       passwordType: 'password',
       redirect: undefined
+    }
+  },
+  methods: {
+    login() {
+      this.$router.push({ path: '/main/index' })
     }
   }
 }
