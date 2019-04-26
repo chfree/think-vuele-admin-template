@@ -2,7 +2,7 @@
   <div class="topbar-container">
     <el-menu class="topbar" mode="horizontal">
       <span class="logo-img" style="padding-top:5px;float:left;height:50px;padding-left:10px;">
-        <img src="" style="width:200px;height:40px;" />
+        <img src="@/assets/logo.png" style="width:40px;height:40px;" />
       </span>
       <span class="title-font">
         <a href="/#/main/index">think-vue-admin</a>
@@ -61,7 +61,7 @@ $title-color:#29292a;
     color: $title-color;
     font-size: 18px;
     line-height: $topbar-height;
-    padding-left: 20px;
+    padding-left: 10px;
     font-weight: 800;
     float: left;
     a{
