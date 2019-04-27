@@ -15,20 +15,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import sidebarItem from './sidebar-item'
-
+import menus from '@/router/menu.route.js'
 export default {
   components: { sidebarItem },
   data: () => ({
+    menus
   }),
   computed: {
-    ...mapGetters([
-      'sidebar',
-      'menus'
-    ]),
     isCollapse() {
-      return !this.sidebar.opened
+      return false
     }
   }
 }

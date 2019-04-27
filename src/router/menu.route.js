@@ -1,75 +1,49 @@
+import { loadPage } from './route.load'
 const menus = [
   {
-    'id': '14080eae-f373-11e8-975d-000ec6c49b02',
-    'name': 'layout',
-    'title': '个人中心',
-    'icon': 'table',
-    'path': '/personCenter',
-    'parentMenu': '0',
-    'remark': '',
-    'redirect': '/personCenter/personCenter',
-    'hidden': false,
-    'children': [
+    name: 'layout',
+    title: '个人中心',
+    icon: 'table',
+    path: '/personCenter',
+    redirect: '/personCenter/personCenter',
+    component: loadPage('layout/index'),
+    children: [
       {
-        'id': '14080eae-f373-11e8-975d-000ec6c49100',
-        'name': 'personCenterIndex',
-        'title': '个人中心',
-        'icon': 'table',
-        'path': 'personCenter',
-        'parentMenu': '14080eae-f373-11e8-975d-000ec6c49b02',
-        'remark': '',
-        'redirect': '',
-        'hidden': true,
-        'children': []
+        name: 'personCenterIndex',
+        title: '个人中心',
+        icon: 'table',
+        path: 'personCenter',
+        component: loadPage('main/index')
       }
     ]
   },
   {
-    'id': '4a43feef-f23c-11e8-aa9e-9828a6076b95',
-    'name': 'layout',
-    'title': '业务申请',
-    'icon': 'example',
-    'path': '/apply',
-    'parentMenu': '0',
-    'remark': '',
-    'redirect': '',
-    'hidden': false,
-    'children': [
+    name: 'system',
+    title: '系统管理',
+    icon: 'example',
+    path: '/system',
+    component: loadPage('layout/index'),
+    children: [
       {
-        'id': '4a43feef-f23c-11e8-aa9e-9828a6076100',
-        'name': 'claimIndex',
-        'title': '领用申请',
-        'icon': 'table',
-        'path': 'claim',
-        'parentMenu': '4a43feef-f23c-11e8-aa9e-9828a6076b95',
-        'remark': '',
-        'redirect': '',
-        'hidden': false,
-        'children': []
+        name: 'dept',
+        title: '部门管理`',
+        icon: 'table',
+        path: 'dept',
+        component: loadPage('setting/dept/index')
       },
       {
-        'id': '4a43feef-f23c-11e8-aa9e-9828a6076101',
-        'name': 'borrowIndex',
-        'title': '借用申请',
-        'icon': 'table',
-        'path': 'borrow',
-        'parentMenu': '4a43feef-f23c-11e8-aa9e-9828a6076b95',
-        'remark': '',
-        'redirect': '',
-        'hidden': false,
-        'children': []
+        name: 'user',
+        title: '用户管理',
+        icon: 'table',
+        path: 'user',
+        component: loadPage('setting/user/index')
       },
       {
-        'id': '4a43feef-f23c-11e8-aa9e-9828a6076102',
-        'name': 'stockReturnIndex',
-        'title': '退库申请',
-        'icon': 'table',
-        'path': 'stockReturn',
-        'parentMenu': '4a43feef-f23c-11e8-aa9e-9828a6076b95',
-        'remark': '',
-        'redirect': '',
-        'hidden': false,
-        'children': []
+        name: 'role',
+        title: '角色管理',
+        icon: 'table',
+        path: 'role',
+        component: loadPage('setting/role/index')
       }]
   }
 ]

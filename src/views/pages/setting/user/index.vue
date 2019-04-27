@@ -1,14 +1,11 @@
 <template>
   <div>
-    <topbar />
-    <router-view />
+    <h1>user</h1>
   </div>
 </template>
 
 <script>
-import topbar from './topbar'
 export default {
-  components: {topbar}
 }
 </script>
 
