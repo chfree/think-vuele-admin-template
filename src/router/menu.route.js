@@ -5,17 +5,55 @@ const menus = [
     title: '个人中心',
     icon: 'table',
     path: '/personCenter',
-    redirect: '/personCenter/personCenter',
+    redirect: '/system/personCenter',
+    component: loadPage('layout/index')
+  },
+  {
+    name: 'setting',
+    title: '配置中心',
+    icon: 'table',
+    path: '/setting',
     component: loadPage('layout/index'),
-    children: [
-      {
-        name: 'personCenterIndex',
-        title: '个人中心',
+    children: [{
+      name: 'mysetting',
+      title: '我的配置',
+      icon: 'table',
+      path: '/mysetting',
+      component: loadPage('setting/mysetting/index')
+    }]
+  },
+  {
+    name: 'test1',
+    title: 'test1',
+    icon: 'table',
+    path: '/test1',
+    component: loadPage('layout/index'),
+    children: [{
+      name: 'test1-1',
+      title: 'test1-1',
+      icon: 'table',
+      path: 'test1-1',
+      component: loadPage('layout/empty.layout'),
+      children: [{
+        name: 'test1-1-1',
+        title: 'test1-1-1',
         icon: 'table',
-        path: 'personCenter',
-        component: loadPage('main/index')
-      }
-    ]
+        path: 'test1-1-1',
+        component: loadPage('test/test1-1-1')
+      }, {
+        name: 'test1-1-2',
+        title: 'test1-1-2',
+        icon: 'table',
+        path: 'test1-1-2',
+        component: loadPage('test/test1-1-2')
+      }]
+    }, {
+      name: 'test1-2',
+      title: 'test1-2',
+      icon: 'table',
+      path: 'test1-2',
+      component: loadPage('test/test1-2')
+    }]
   },
   {
     name: 'system',
@@ -25,25 +63,33 @@ const menus = [
     component: loadPage('layout/index'),
     children: [
       {
+        name: 'personCenterIndex',
+        title: '个人中心',
+        icon: 'table',
+        path: 'personCenter',
+        hidden: true,
+        component: loadPage('main/index')
+      },
+      {
         name: 'dept',
         title: '部门管理',
         icon: 'table',
         path: 'dept',
-        component: loadPage('setting/dept/index')
+        component: loadPage('basic/dept/index')
       },
       {
         name: 'user',
         title: '用户管理',
         icon: 'table',
         path: 'user',
-        component: loadPage('setting/user/index')
+        component: loadPage('basic/user/index')
       },
       {
         name: 'role',
         title: '角色管理',
         icon: 'table',
         path: 'role',
-        component: loadPage('setting/role/index')
+        component: loadPage('basic/role/index')
       }]
   }
 ]
