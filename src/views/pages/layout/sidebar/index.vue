@@ -5,7 +5,7 @@
       :default-active="$route.path"
       :collapse="isCollapse"
       mode="vertical"
-      background-color="#2079cf"
+      background-color="#394A60"
       text-color="#fff"
       active-text-color="#fff"
     >
@@ -29,3 +29,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.router-link-active{
+  li.is-active{
+    background-color: #283443 !important;
+  }
+}
+</style>

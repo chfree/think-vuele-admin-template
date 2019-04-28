@@ -26,7 +26,7 @@ const menus = [
     children: [
       {
         name: 'dept',
-        title: '部门管理`',
+        title: '部门管理',
         icon: 'table',
         path: 'dept',
         component: loadPage('setting/dept/index')

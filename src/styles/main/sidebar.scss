@@ -1,8 +1,8 @@
 #app {
   $top-title-bar-height: 50px; 
   $left-container-width: 200px;
-  $menuBg:#304156;
-  $subMenuBg:#2079cf;
+  $menuBg:#394A60;
+  $subMenuBg:#394A60;
   $menuHover:#1d61a0;
 
   // 主体区域
@@ -92,7 +92,7 @@
     }
   }
   .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
-  .sidebar-container .el-submenu .el-menu-item {
+  .sidebar-container .el-submenu .el-menu-item:not(.is-active) {
     min-width: $left-container-width !important;
     background-color: $subMenuBg !important;
     &:hover {
@@ -101,6 +101,20 @@
   }
   .el-menu--collapse .el-menu .el-submenu {
     min-width: $left-container-width !important;
+  }
+  .sidebar-container {
+    .el-submenu__title,.el-menu-item{
+      height: 50px !important;
+      line-height: 50px !important;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .el-submenu .el-menu-item{
+      height: 48px !important;
+      line-height: 48px !important;
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 
   //适配移动端
