@@ -2,19 +2,38 @@
   <div>
     <h3>font-awesome5.8.0</h3>
     <div>
-      <i class="fa fa-user-alt" />
-      <i class="fa fa-user-alt-slash" />
-      <i class="fa fa-water" />
-      <i class="fa fa-xbox" />
+      <el-row>
+        <el-col :span="2" v-for="icon in icons" :key="icon" :style="style" class="icon-el">
+          <i :class="icon" />
+          <div style="font-size:14px;">{{icon}}</div>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
+import icons from './icons.js'
 export default {
+  data() {
+    return {
+      icons,
+      style: {
+        color: '#394160',
+        fontSize: '32px'
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-
+.icon-el{
+  text-align: center;
+  height: 115px;
+  cursor: pointer;
+}
+.icon-el:hover{
+  background: #eee;
+}
 </style>
