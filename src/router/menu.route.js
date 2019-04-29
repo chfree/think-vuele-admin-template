@@ -18,38 +18,52 @@ const menus = [
       name: 'mysetting',
       title: '我的配置',
       icon: 'table',
-      path: '/mysetting',
+      path: 'mysetting',
       component: loadPage('setting/mysetting/index')
     }]
   },
   {
+    name: 'component',
+    title: '组件库',
+    icon: 'table',
+    path: '/component',
+    component: loadPage('layout/index'),
+    children: [{
+      name: 'fontawesome',
+      title: 'fontawesome',
+      icon: 'table',
+      path: 'fontawesome',
+      component: loadPage('component/fontawesome/index')
+    }]
+  },
+  {
     name: 'test1',
-    title: '测试1',
+    title: '菜单1',
     icon: 'table',
     path: '/test1',
     component: loadPage('layout/index'),
     children: [{
       name: 'test1-1',
-      title: '测试1-1',
+      title: '菜单1-1',
       icon: 'table',
       path: 'test1-1',
       component: loadPage('layout/empty.layout'),
       children: [{
         name: 'test1-1-1',
-        title: '测试1-1-1',
+        title: '菜单1-1-1',
         icon: 'table',
         path: 'test1-1-1',
         component: loadPage('test/test1-1-1')
       }, {
         name: 'test1-1-2',
-        title: '测试1-1-2',
+        title: '菜单1-1-2',
         icon: 'table',
         path: 'test1-1-2',
         component: loadPage('test/test1-1-2')
       }]
     }, {
       name: 'test1-2',
-      title: '测试1-2',
+      title: '菜单1-2',
       icon: 'table',
       path: 'test1-2',
       component: loadPage('test/test1-2')

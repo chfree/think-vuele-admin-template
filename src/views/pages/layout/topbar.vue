@@ -9,8 +9,8 @@
       </span>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
+          <i class="fa fa-user" style="font-size:18px;color:#394160;" aria-hidden="true"></i>
           <span style="font-size:16px;font-weight:800;cursor:pointer;color:#3a46e9">{{ loginInfo.loginName }}</span>
-          <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <el-dropdown-item>
