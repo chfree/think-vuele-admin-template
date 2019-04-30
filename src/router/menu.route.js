@@ -34,6 +34,12 @@ const menus = [
       icon: 'table',
       path: 'fontawesome',
       component: loadPage('component/fontawesome/index')
+    }, {
+      name: 'remixicon',
+      title: 'remixicon',
+      icon: 'table',
+      path: 'remixicon',
+      component: loadPage('component/remixicon/index')
     }]
   },
   {

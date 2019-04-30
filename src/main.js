@@ -7,6 +7,7 @@ import TennetcnUI from 'tennetcn-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'remixicon/fonts/remixicon.css'
 Vue.config.productionTip = false
 
 Vue.use(TennetcnUI)
