@@ -31,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 .icon-el{
   text-align: center;
-  height: 115px;
+  height: 100px;
   cursor: pointer;
 }
 .icon-el:hover{
