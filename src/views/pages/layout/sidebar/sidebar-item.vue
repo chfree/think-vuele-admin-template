@@ -2,7 +2,7 @@
   <div v-if="!item.hidden" class="menu-wrapper">
     <app-link  v-if="!item.children" :to="resolvePath(item.path)">
       <el-menu-item :index="resolvePath(item.path)" :class="{'submenu-title-noDropdown':!isNest}">
-        <item v-if="item" :icon="item.icon||item.icon" :title="item.title" />
+        <item v-if="item" :icon="item.meta.icon||item.meta.icon" :title="item.meta.title" />
       </el-menu-item>
     </app-link>
     <el-submenu v-else :index="item.name||item.path">

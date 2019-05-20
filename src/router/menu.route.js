@@ -7,20 +7,8 @@ const menus = [
       title: '个人中心',
       icon: 'table'
     },
-    redirect: '/personCenter/personCenter',
-    component: loadPage('layout/index'),
-    children: [
-      {
-        name: 'personCenterIndex',
-        path: 'personCenter',
-        meta: {
-          title: '个人中心',
-          icon: 'table'
-        },
-        hidden: true,
-        component: loadPage('main/index')
-      }
-    ]
+    redirect: '/system/personCenter',
+    component: loadPage('layout/index')
   },
   {
     name: 'setting',
@@ -120,6 +108,16 @@ const menus = [
     },
     component: loadPage('layout/index'),
     children: [
+      {
+        name: 'personCenterIndex',
+        path: 'personCenter',
+        meta: {
+          title: '个人中心',
+          icon: 'table'
+        },
+        hidden: true,
+        component: loadPage('main/index')
+      },
       {
         name: 'dept',
         title: '部门管理',
