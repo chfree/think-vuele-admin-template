@@ -96,7 +96,12 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         use: [
-          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+          isProd ? {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../../'
+            }
+          } : 'style-loader',
           'css-loader',
           'sass-loader'
         ]

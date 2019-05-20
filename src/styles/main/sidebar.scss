@@ -7,7 +7,7 @@
 
   // 主体区域
   .main-container {
-    min-height: calc(100% - var($top-title-bar-height));
+    min-height: calc(100% - var(80px));
     transition: margin-left .28s;
     margin-left: $left-container-width;
     position: relative;

@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .app-main {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
   position: relative;
   overflow: auto;
 }
