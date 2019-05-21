@@ -12,6 +12,8 @@ Vue.config.productionTip = false
 
 Vue.use(TennetcnUI)
 
+import '@/mock'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

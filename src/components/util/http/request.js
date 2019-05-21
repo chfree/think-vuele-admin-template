@@ -1,5 +1,5 @@
 import axios from 'axios'
-import router from '@/router'
+// import router from '@/router'
 
 axios.defaults.baseURL = process.env.API_HOST
 axios.defaults.headers.common['Authorization'] = window.sessionStorage.getItem('token')
@@ -24,62 +24,56 @@ const httpJson = axios.create({
   }
 })
 
-axios.defaults.interceptors.request.use(rquestInterceptor)
-axios.defaults.interceptors.response.use(responseInterceptor)
+// axios.defaults.interceptors.request.use(rquestInterceptor)
+// axios.defaults.interceptors.response.use(responseInterceptor)
 
-function rquestInterceptor(config) {
-  if (!window.sessionStorage.token) {
-    router.push({ name: 'login', path: '/' })
-  }
-}
+// function rquestInterceptor(config) {
+//   if (!window.sessionStorage.token) {
+//     router.push({ name: 'login', path: '/' })
+//   }
+// }
+
+// function responseInterceptor(res) {
+//   if (res.status === 501) {
+//     router.push({ name: 'login', path: '/' })
+//     return false
+//   }
+//   if (res.status !== 200) {
+//     return false
+//   }
+//   res.data.ok = res.data.status === '200'
+//   if (!res.data.ok) {
+//     return false
+//   }
+//   return true
+// }
 
 function apiAxios(method, url, params, success, error) {
-  http({
+  execRequest(http({
     method: method,
     url: url,
     data: method === 'POST' || method === 'PUT' ? params : null,
     params: method === 'GET' || method === 'DELETE' ? params : null
-  }).then(function(res) {
-    success(res)
-  }).catch(function(err) {
-    if (!error) {
-      success(err)
-    } else {
-      error(err)
-    }
-
-  })
-}
-
-function responseInterceptor(res) {
-  if (res.status === 501) {
-    router.push({ name: 'login', path: '/' })
-    return false
-  }
-  if (res.status !== 200) {
-    return false
-  }
-  res.data.ok = res.data.status === '200'
-  if (!res.data.ok) {
-    return false
-  }
-  return true
+  }), success, error)
 }
 
 function apiJsonAxios(method, url, params, success, error) {
-  httpJson({
+  execRequest(httpJson({
     method: method,
     url: url,
     data: params
-  }).then(function(res) {
+  }), success, error)
+}
+
+function execRequest(httpRequest, success, error) {
+  httpRequest.then(function(res) {
     success(res)
   }).catch(function(err) {
-    if (!error) {
+    if (error) {
       success(err)
     } else {
       error(err)
     }
-
   })
 }
 
