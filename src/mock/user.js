@@ -8,7 +8,7 @@ function getAllUser() {
   ]
   return {
     arguments: {
-      usrs: users
+      users: users
     }
   }
 }
