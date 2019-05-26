@@ -1,6 +1,8 @@
 <template>
   <div>
-    <tc-table :data="data.list" :columns="columns" />
+    <tc-block style="padding:5px;">
+      <tc-table :data="data.list" :columns="columns" />
+    </tc-block>
   </div>
 </template>
 
