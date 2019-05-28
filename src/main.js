@@ -6,9 +6,9 @@ import router from './router'
 import TennetcnUI from 'tennetcn-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'tennetcn-ui/lib/styles/index.css'
-import '@/styles/index.scss'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'remixicon/fonts/remixicon.css'
+import '@/styles/index.scss'
 Vue.config.productionTip = false
 
 Vue.use(TennetcnUI)
