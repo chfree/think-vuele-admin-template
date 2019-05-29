@@ -1,13 +1,26 @@
 .tc-table{
   .el-table__body tr.current-row{
-    background-color: #84bcf5 !important;
+    background-color: #bad4ee !important;
   }
   .el-table__body tr.current-row:hover{
-    background-color: #84bcf5 !important;
-    color: #111;
+    background-color: #bad4ee !important;
   }
-  .el-table--striped .el-table__body tr.el-table__row--striped.current-row td, .el-table__body tr.current-row>td{
-    background-color: #c7def5;
+  .el-table--striped .el-table__body tr.el-table__row--striped.current-row td, 
+  .el-table__body tr.current-row>td{
+    background-color: #bad4ee !important;
+  }
+  .el-table__empty-block {
+    min-height: 35px;
+  }
+  td {
+    padding: 6px 0px !important;
+  }
+  thead{
+    th{
+      background-color: #E4E7ED;
+      color: #303133;
+      padding: 5px 0px !important;
+    }
   }
 }
 
