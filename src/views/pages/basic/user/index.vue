@@ -21,29 +21,36 @@
         </el-row>
         <el-row>
           <el-col :span="24" style="text-align:center">
-            <tc-button type="primary" size="small" icon="el-icon-search">查询</tc-button>
-            <tc-button type="primary" size="small" icon="el-icon-search">重置</tc-button>
+            <tc-button type="think" size="small" icon="el-icon-search">查询</tc-button>
+            <tc-button type="think" size="small" icon="el-icon-search">重置</tc-button>
           </el-col>
         </el-row>
       </tc-form>
     </tc-block>
-    <tc-block style="margin-bottom:5px;">
+    <tc-block>
       <div style="margin-bottom:10px;">
-        <el-button-group>
-          <el-button type="primary" size="small" icon="el-icon-edit-outline">新增</el-button>
-          <el-button type="primary" size="small" icon="el-icon-edit-outline">编辑</el-button>
-          <el-button type="primary" size="small" icon="el-icon-edit-outline">查看</el-button>
-          <el-button type="primary" size="small" icon="el-icon-edit-outline">分配角色</el-button>
-        </el-button-group>
+        <tc-button-group>
+          <tc-button type="think" size="small" icon="el-icon-edit-outline" @click="addData">新增</tc-button>
+          <tc-button type="think" size="small" icon="el-icon-edit-outline">编辑</tc-button>
+          <tc-button type="think" size="small" icon="el-icon-edit-outline">查看</tc-button>
+          <tc-button type="think" size="small" icon="el-icon-edit-outline">分配角色</tc-button>
+        </tc-button-group>
       </div>
       <tc-table :data="data.list" :columns="columns" />
     </tc-block>
+    <div>
+      <tc-dialog :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="60%" height="60%">
+        <detailed />
+      </tc-dialog>
+    </div>
   </div>
 </template>
 
 <script>
 import userService from '@/api/basic/user'
+import detailed from './detailed'
 export default {
+  components: {detailed},
   data() {
     return {
       columns: [{name: 'usNm', text: '姓名', width: 200},
@@ -55,6 +62,10 @@ export default {
         list: []
       },
       searchForm: {
+      },
+      userDetailedForm: {
+        title: '用户详情',
+        show: false
       }
     }
   },
@@ -66,6 +77,9 @@ export default {
       userService.list().then(result => {
         this.data.list = result.users
       })
+    },
+    addData() {
+      this.userDetailedForm.show = true
     }
   }
 }
