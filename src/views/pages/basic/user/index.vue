@@ -39,7 +39,7 @@
       <tc-table :data="data.list" :columns="columns" />
     </tc-block>
     <div>
-      <tc-dialog :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="60%" height="60%">
+      <tc-dialog :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="70%" height="80%">
         <detailed />
       </tc-dialog>
     </div>

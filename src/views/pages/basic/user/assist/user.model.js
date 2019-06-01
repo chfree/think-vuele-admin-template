@@ -8,7 +8,7 @@ export default {
       userModel: {
         id: null,
         name: null,
-        sex: null,
+        sex: '01',
         account: null,
         mobile: null,
         phone: null,
