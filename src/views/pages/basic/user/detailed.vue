@@ -40,11 +40,13 @@
           </el-col>
         </el-row>
         <el-row :gutter="layout.gutter">
-          <el-col :span="8">
+          <el-col :span="24">
             <el-form-item label="爱好">
-              <tc-input v-model="userModel.hobby"></tc-input>
+              <tc-input-tag v-model="userModel.hobby"></tc-input-tag>
             </el-form-item>
           </el-col>
+        </el-row>
+        <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="生日">
               <tc-date-picker v-model="userModel.birthday" size="small"></tc-date-picker>
@@ -52,14 +54,19 @@
           </el-col>
           <el-col :span="8">
             <el-form-item label="年龄">
-              <tc-input v-model="userModel.age"></tc-input>
+              <tc-input :readonly="true" v-model="userModel.age"></tc-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="微信">
+              <tc-input v-model="userModel.wechat"></tc-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="学历">
-              <tc-input v-model="userModel.education"></tc-input>
+              <tc-select v-model="userModel.education" :providers="eduProviders" />
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -118,30 +125,31 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="微信">
-              <tc-input v-model="userModel.wechat"></tc-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
             <el-form-item label="mac地址">
               <tc-input v-model="userModel.mac"></tc-input>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="ip地址">
               <tc-input v-model="userModel.ip"></tc-input>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+        </el-row>
+        <el-row :gutter="layout.gutter">
+          <el-col :span="24">
             <el-form-item label="部门">
-              <tc-input v-model="userModel.department"></tc-input>
+              <tc-input v-model="userModel.department" :readonly="true">
+                <tc-button slot="append" icon="el-icon-search"></tc-button>
+              </tc-input>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+        </el-row>
+        <el-row :gutter="layout.gutter">
+          <el-col :span="24">
             <el-form-item label="角色">
-              <tc-input v-model="userModel.roles"></tc-input>
+              <tc-input v-model="userModel.roles" :readonly="true">
+                <tc-button slot="append" icon="el-icon-search"></tc-button>
+              </tc-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -163,8 +171,9 @@
 
 <script>
 import userModel from './assist/user.model'
+import userProviders from './assist/user.providers'
 export default {
-  mixins: [userModel],
+  mixins: [userModel, userProviders],
   data() {
     return {
       layout: {
@@ -181,19 +190,5 @@ export default {
 </script>
 
 <style lang="scss">
-.el-date-picker__header{
-  margin: 6px;
-}
-.el-picker-panel__content{
-  margin: 8px;
-  width: auto !important;
-}
-.el-date-table{
-  th {
-    padding: 3px !important;
-  }
-  td {
-    padding: 3px 0px !important;
-  }
-}
+
 </style>

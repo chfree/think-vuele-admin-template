@@ -44,3 +44,34 @@
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+/*******
+* 日期选择变小一点
+********/
+.el-date-picker__header{
+  margin: 6px;
+}
+.el-picker-panel__content{
+  margin: 8px;
+  width: auto !important;
+}
+.el-date-table{
+  th {
+    padding: 3px !important;
+  }
+  td {
+    padding: 3px 0px !important;
+  }
+}
+
+/**
+** input-tag 修复样式  0.0.14版本修复后，去掉此样式
+**/
+.vue-input-tag-wrapper{
+  padding-top: 1px;
+  .input-tag{
+    height: 26px;
+    line-height: 26px;
+    padding: 0px 4px;
+    margin-bottom: 1px;
+  }
+}
