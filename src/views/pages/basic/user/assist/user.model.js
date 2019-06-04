@@ -2,9 +2,14 @@
  * 测试用，尽可能包含更多的信息，便于测试到更多的组件展示
  */
 import moment from 'moment'
+import { nations, provinces } from './procites.data'
 export default {
   data() {
     return {
+      providers: {
+        nations: nations,
+        provinces: []
+      },
       emptyModel: {},
       userModel: {
         id: null,
@@ -40,6 +45,9 @@ export default {
   watch: {
     'userModel.birthday': function(newVal, oldVal) {
       this.userModel.age = moment().diff(moment(newVal), 'year')
+    },
+    'userModel.nation': function(newVal) {
+      this.providers.provinces = provinces.filter(item=>item.pid === newVal)
     }
   },
   created() {

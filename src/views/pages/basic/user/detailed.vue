@@ -66,7 +66,7 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="学历">
-              <tc-select v-model="userModel.education" :providers="eduProviders" />
+              <tc-select v-model="userModel.education" :providers="providers.eduProviders" />
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -83,7 +83,7 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="国家">
-              <tc-input v-model="userModel.nation"></tc-input>
+              <tc-select v-model="userModel.nation" :providers="providers.nations"></tc-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -104,7 +104,7 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="省份">
-              <tc-input v-model="userModel.province"></tc-input>
+              <tc-select v-model="userModel.province" :providers="providers.provinces"></tc-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">

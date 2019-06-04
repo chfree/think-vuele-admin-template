@@ -1,7 +1,10 @@
 export default {
   data() {
     return {
-      eduProviders: []
+      providers: {
+        eduProviders: []
+      }
+
     }
   },
   created() {
@@ -14,7 +17,7 @@ export default {
         {text: '本科', value: '03', id: '03'},
         {text: '专科', value: '04', id: '04'},
         {text: '高中', value: '05', id: '05'}]
-      this.eduProviders = initEduProviders
+      this.providers.eduProviders = initEduProviders
     }
   }
 }
