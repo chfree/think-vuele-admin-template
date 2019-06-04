@@ -83,7 +83,7 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="国家">
-              <tc-select v-model="userModel.nation" :providers="providers.nations"></tc-select>
+              <tc-select v-model="userModel.nation" clearable filterable :providers="providers.nations"></tc-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -104,17 +104,17 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="省份">
-              <tc-select v-model="userModel.province" :providers="providers.provinces"></tc-select>
+              <tc-select v-model="userModel.province" clearable filterable :providers="providers.provinces"></tc-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="城市">
-              <tc-input v-model="userModel.city"></tc-input>
+              <tc-select v-model="userModel.city" clearable filterable :providers="providers.citys"></tc-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="区县">
-              <tc-input v-model="userModel.county"></tc-input>
+              <tc-select v-model="userModel.county" clearable filterable :providers="providers.countys"></tc-select>
             </el-form-item>
           </el-col>
         </el-row>

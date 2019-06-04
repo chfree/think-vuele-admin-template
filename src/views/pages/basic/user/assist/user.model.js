@@ -2,13 +2,15 @@
  * 测试用，尽可能包含更多的信息，便于测试到更多的组件展示
  */
 import moment from 'moment'
-import { nations, provinces } from './procites.data'
+import { nations, provinces, citys, countys } from './procites.data'
 export default {
   data() {
     return {
       providers: {
         nations: nations,
-        provinces: []
+        provinces: [],
+        citys: [],
+        areas: []
       },
       emptyModel: {},
       userModel: {
@@ -48,6 +50,24 @@ export default {
     },
     'userModel.nation': function(newVal) {
       this.providers.provinces = provinces.filter(item=>item.pid === newVal)
+      this.userModel.province = null
+
+      this.providers.citys = []
+      this.userModel.city = null
+
+      this.providers.countys = []
+      this.userModel.county = null
+    },
+    'userModel.province': function(newVal) {
+      this.providers.citys = citys.filter(item=>item.pid === newVal)
+      this.userModel.city = null
+
+      this.providers.countys = []
+      this.userModel.county = null
+    },
+    'userModel.city': function(newVal) {
+      this.providers.countys = countys.filter(item=>item.pid === newVal)
+      this.userModel.county = null
     }
   },
   created() {
