@@ -5,7 +5,7 @@
         <img src="@/assets/logo.png" style="width:40px;height:40px;" />
       </span>
       <span class="title-font">
-        <a href="/#/main/index">think-vue-admin</a>
+        <a href="/#/system/personCenter">think-vue-admin</a>
       </span>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">

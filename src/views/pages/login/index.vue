@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        username: '',
+        password: ''
       },
       loading: false,
       passwordType: 'password',
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     login() {
-      this.$router.push({ path: '/main/index' })
+      this.$router.push({ path: '/system/personCenter' })
     }
   }
 }
