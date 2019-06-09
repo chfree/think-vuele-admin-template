@@ -21,7 +21,7 @@ export default {
         mobile: null,
         phone: null,
         email: null,
-        hobby: [],
+        hobby: null,
         nation: null,
         province: null,
         city: null,

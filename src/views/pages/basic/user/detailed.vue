@@ -42,7 +42,7 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="24">
             <el-form-item label="爱好">
-              <tc-input-tag v-model="userModel.hobby"></tc-input-tag>
+              <tc-input-tag v-model="userModel.hobby" />
             </el-form-item>
           </el-col>
         </el-row>
