@@ -1,21 +1,10 @@
 describe('登陆测试', function() {
-  it('测试登陆输入正确是否成功跳转', function() {
-    cy.visit('/')
-    cy.get('input[name="username"]')
-      .clear()
-      .type('admin-cypress')
-
-    cy.get('input[name="password"]')
-      .clear()
-      .type('admin-cypress')
-
-    cy.get('.loginButton')
-      .click()
-
+  it('登陆', function() {
+    cy.login('admin', 'admin')
   })
 
   it('测试跳转到用户信息', function() {
-    cy.visit('/#/system/user')
+    cy.openMenu('系统管理','用户管理')
   })
 
   it('测试搜索查询', function() {
@@ -45,10 +34,19 @@ describe('登陆测试', function() {
 
   it('测试新增', function() {
     cy.get('#addData')
-      .click()
+      .click({force:true})
+    cy.wait(400)
+    let addDialog = '.tc-dialog-body-container'
+    cy.field(addDialog,'userModel_name','chfree-test')
+    cy.field(addDialog,'userModel_birthday', '{enter}')
+    cy.field(addDialog, 'userModel_education', '硕士')
 
-    cy.get('.tc-dialog-body-container .tc-select[vname="userModel_education"]')
-      .click({force: true})
+    cy.field(addDialog, 'userModel_nation', '中国').wait(100)
+    cy.field(addDialog, 'userModel_province', '湖北省').wait(100)
+    cy.field(addDialog, 'userModel_city', '武汉市').wait(100)
+    cy.field(addDialog, 'userModel_county', '洪山区').wait(100)
+    // cy.get('.tc-dialog-body-container .tc-select[vname="userModel_education"]')
+    //   .click({force: true})
     
     
   })

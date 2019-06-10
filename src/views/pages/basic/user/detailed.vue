@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{userModel}}
     <tc-form :model="userModel" size="small" label-width="70px">
       <div style="padding:10px;">
         <el-row :gutter="layout.gutter">

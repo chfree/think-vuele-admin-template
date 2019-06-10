@@ -23,3 +23,47 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (username, password) => { 
+  cy.visit('/')
+  cy.get('input[name="username"]')
+    .clear()
+    .type(username)
+
+  cy.get('input[name="password"]')
+    .clear()
+    .type(password)
+
+  cy.get('.loginButton')
+    .click()
+})
+
+Cypress.Commands.add('openMenu', (menu1, menu2) => { 
+  cy.contains(menu1)
+    .parent()
+    .click({force:true})
+  
+  cy.wait(600)
+    .contains(menu2)
+    .click({force:true})
+})
+
+Cypress.Commands.add('field', (container, vname, value) => { 
+  cy.get(container +' [vname="'+vname+'"]')
+    .then((el) => {
+      if(el.hasClass('el-date-editor')){
+        cy.get(el)
+        .children('input')
+        .type(value)
+      }else if(el.hasClass('tc-select')){
+        cy.get(el)
+          .get('div.el-select-dropdown.el-popper ul li')
+          .contains(value)
+          .click({force:true})
+      }else{
+        cy.get(el).type(value)
+      }
+    })
+    
+    
+})
