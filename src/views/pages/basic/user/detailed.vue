@@ -16,10 +16,7 @@
           </el-col>
           <el-col :span="8">
             <el-form-item label="性别">
-              <el-radio-group v-model="userModel.sex" size="small">
-                <el-radio-button label="01">男</el-radio-button>
-                <el-radio-button label="02">女</el-radio-button>
-              </el-radio-group>
+              <tc-radio-group v-model="userModel.sex" :providers="providers.sexProviders" size="small" />
             </el-form-item>
           </el-col>
         </el-row>

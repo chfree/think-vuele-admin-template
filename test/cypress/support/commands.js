@@ -49,7 +49,7 @@ Cypress.Commands.add('openMenu', (menu1, menu2) => {
 })
 
 Cypress.Commands.add('field', (container, vname, value) => { 
-  cy.get(container +' [vname="'+vname+'"]')
+  cy.get(container +' [vname="'+vname+'"]:first')
     .then((el) => {
       if(el.hasClass('el-date-editor')){
         cy.get(el)
@@ -60,6 +60,14 @@ Cypress.Commands.add('field', (container, vname, value) => {
           .get('div.el-select-dropdown.el-popper ul li')
           .contains(value)
           .click({force:true})
+      }else if(el.hasClass('tc-radio-group')){
+        cy.get(el)
+          .contains(value)
+          .click({force:true})
+      }else if(el.hasClass('tc-input-tag')){
+        cy.get(el)
+          .get('input.ti-new-tag-input.ti-valid')
+          .type(value+'{enter}')
       }else{
         cy.get(el).type(value)
       }

@@ -37,9 +37,13 @@ describe('登陆测试', function() {
       .click({force:true})
     cy.wait(400)
     let addDialog = '.tc-dialog-body-container'
+
     cy.field(addDialog,'userModel_name','chfree-test')
+    cy.field(addDialog, 'userModel_sex', '女')
+    cy.field(addDialog, 'userModel_hobby', '打篮球,羽毛球')
     cy.field(addDialog,'userModel_birthday', '{enter}')
     cy.field(addDialog, 'userModel_education', '硕士')
+    
 
     cy.field(addDialog, 'userModel_nation', '中国').wait(100)
     cy.field(addDialog, 'userModel_province', '湖北省').wait(100)
