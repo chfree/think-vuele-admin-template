@@ -5,7 +5,7 @@
         <el-row>
           <el-col :span="8">
             <tc-form-item label="用户姓名:">
-              <tc-input v-model="searchForm.userName" name="username"></tc-input>
+              <tc-input v-model="searchForm.name" name="name"></tc-input>
             </tc-form-item>
           </el-col>
           <el-col :span="8">
@@ -40,7 +40,7 @@
     </tc-block>
     <div>
       <tc-dialog :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="70%" height="80%">
-        <detailed />
+        <detailed @userSaveSuccess="userSaveSuccess" />
       </tc-dialog>
     </div>
   </div>
@@ -53,17 +53,17 @@ export default {
   components: {detailed},
   data() {
     return {
-      columns: [{name: 'usNm', text: '姓名', width: 200},
-        {name: 'gnd', text: '性别', width: 100},
-        {name: 'uassAccNo', text: '账号', width: 200},
-        {name: 'usrMblPh', text: '电话', width: 200},
-        {name: 'rmrk', text: '备注'}],
+      columns: [{name: 'name', text: '姓名', width: 200},
+        {name: 'sex', text: '性别', width: 100},
+        {name: 'account', text: '账号', width: 200},
+        {name: 'mobile', text: '电话', width: 200},
+        {name: 'remark', text: '备注'}],
       data: {
         list: []
       },
       emptySearchForm: {},
       searchForm: {
-        username: null,
+        name: null,
         mobile: null,
         account: null
       },
@@ -78,11 +78,10 @@ export default {
     this.loadData()
   },
   mounted() {
-    console.log(this)
   },
   methods: {
     loadData() {
-      userService.list().then(result => {
+      userService.list(this.searchForm).then(result => {
         this.data.list = result.users
       })
     },
@@ -90,11 +89,14 @@ export default {
       this.userDetailedForm.show = true
     },
     userSearch() {
-      this.data.list = []
+      // this.data.list = []
       this.loadData()
     },
     resetUserSearch() {
       this.searchForm = Object.assign({}, this.emptySearchForm)
+    },
+    userSaveSuccess() {
+      this.userSearch()
     }
   }
 }

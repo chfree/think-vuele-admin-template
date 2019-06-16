@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{userModel}}
     <tc-form :model="userModel" size="small" label-width="70px">
       <div style="padding:10px;">
         <el-row :gutter="layout.gutter">
@@ -23,12 +22,12 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="手机号">
-              <tc-input v-model="userModel.mobile"></tc-input>
+              <tc-input-phone v-model="userModel.mobile" valid-type="mobile"></tc-input-phone>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="办公电话">
-              <tc-input v-model="userModel.phone"></tc-input>
+              <tc-input v-model="userModel.phone" valid-type="phone"></tc-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -86,14 +85,14 @@
           </el-col>
           <el-col :span="8">
             <el-form-item label="身高">
-              <tc-input v-model="userModel.height">
+              <tc-input v-model="userModel.height" regular-type="decimalTwo">
                  <template slot="append">厘米</template>
               </tc-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="体重">
-              <tc-input v-model="userModel.weight">
+              <tc-input v-model="userModel.weight" regular-type="decimalTwo">
                 <template slot="append">千克</template>
               </tc-input>
             </el-form-item>
@@ -119,7 +118,7 @@
         <el-row :gutter="layout.gutter">
           <el-col :span="8">
             <el-form-item label="QQ">
-              <tc-input v-model="userModel.qq"></tc-input>
+              <tc-input v-model="userModel.qq" regular-type="qq"></tc-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -160,7 +159,7 @@
         </el-row>
       </div>
       <tc-fixed-bottom style="text-align:center;line-height:30px;">
-        <tc-button type="think" size="small">保存</tc-button>
+        <tc-button type="think" size="small" @click="saveForm">保存</tc-button>
         <tc-button type="think" size="small" @click="resetForm">重置</tc-button>
       </tc-fixed-bottom>
     </tc-form>
@@ -170,6 +169,8 @@
 <script>
 import userModel from './assist/user.model'
 import userProviders from './assist/user.providers'
+import userService from '@/api/basic/user'
+
 export default {
   mixins: [userModel, userProviders],
   data() {
@@ -182,6 +183,16 @@ export default {
   methods: {
     resetForm() {
       this.resetModel()
+    },
+    saveForm() {
+      userService.save(this.userModel).then(result => {
+        if (result.ok) {
+          this.resetForm()
+          this.$parent.hide()
+          this.$message.success('添加成功')
+          this.$emit('userSaveSuccess')
+        }
+      })
     }
   }
 }

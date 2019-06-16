@@ -1,7 +1,8 @@
 {
   "globals": {
     "ga": true,
-    "Promise": true
+    "Promise": true,
+    "cc": true
   },
   "plugins": ["html", "json"],
   "extends": "elemefe",

@@ -15,6 +15,8 @@ Vue.use(TennetcnUI)
 
 import '@/mock'
 
+window.cc = console
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
