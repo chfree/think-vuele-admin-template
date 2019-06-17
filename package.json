@@ -14,7 +14,7 @@
     "build": "rimraf dist && node build/build.js"
   },
   "dependencies": {
-    "tennetcn-ui": "0.0.22",
+    "tennetcn-ui": "0.0.23",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
