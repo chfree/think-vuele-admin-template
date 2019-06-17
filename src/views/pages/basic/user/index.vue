@@ -31,16 +31,16 @@
       <div style="margin-bottom:10px;">
         <tc-button-group>
           <tc-button type="think" size="small" icon="el-icon-edit-outline" id="addData" @click="addData">新增</tc-button>
-          <tc-button type="think" size="small" icon="el-icon-edit-outline">编辑</tc-button>
+          <tc-button ref="editData" type="think" size="small" icon="el-icon-edit-outline" @click="editData">编辑</tc-button>
           <tc-button type="think" size="small" icon="el-icon-edit-outline">查看</tc-button>
           <tc-button type="think" size="small" icon="el-icon-edit-outline">分配角色</tc-button>
         </tc-button-group>
       </div>
-      <tc-table :data="data.list" :columns="columns" />
+      <tc-table ref="userTable" :data="data.list" :columns="columns" />
     </tc-block>
     <div>
       <tc-dialog :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="70%" height="80%">
-        <detailed @userSaveSuccess="userSaveSuccess" />
+        <detailed :model="userDetailedForm.model" @userSaveSuccess="userSaveSuccess" />
       </tc-dialog>
     </div>
   </div>
@@ -69,7 +69,8 @@ export default {
       },
       userDetailedForm: {
         title: '用户详情',
-        show: false
+        show: false,
+        model: null
       }
     }
   },
@@ -89,7 +90,6 @@ export default {
       this.userDetailedForm.show = true
     },
     userSearch() {
-      // this.data.list = []
       this.loadData()
     },
     resetUserSearch() {
@@ -97,6 +97,15 @@ export default {
     },
     userSaveSuccess() {
       this.userSearch()
+    },
+    editData() {
+      const currentRow = this.$refs.userTable.getCurrentRow()
+      if (currentRow !== null) {
+        this.userDetailedForm.show = true
+        this.userDetailedForm.model = currentRow
+      } else {
+        this.$message.warning('必须选中一条数据')
+      }
     }
   }
 }

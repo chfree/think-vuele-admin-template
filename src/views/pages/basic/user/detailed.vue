@@ -173,11 +173,22 @@ import userService from '@/api/basic/user'
 
 export default {
   mixins: [userModel, userProviders],
+  props: {
+    model: { type: Object, default: null }
+  },
   data() {
     return {
       layout: {
         gutter: 20
       }
+    }
+  },
+  mounted() {
+    this.userModel = Object.assign(this.userModel, this.model)
+  },
+  watch: {
+    model: function(val) {
+      this.userModel = Object.assign(this.userModel, val)
     }
   },
   methods: {
