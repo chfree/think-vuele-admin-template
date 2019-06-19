@@ -170,7 +170,6 @@
 import userModel from './assist/user.model'
 import userProviders from './assist/user.providers'
 import userService from '@/api/basic/user'
-import { isNull } from 'tennetcn-ui/lib/utils'
 
 export default {
   mixins: [userModel, userProviders],
@@ -181,9 +180,6 @@ export default {
     return {
       layout: {
         gutter: 20
-      },
-      mm: {
-        hobby: '写bug,调bug'
       }
     }
   },
@@ -191,15 +187,14 @@ export default {
     this.userModel = Object.assign(this.userModel, this.model)
   },
   watch: {
-    model: function(val) {
-      if (isNull(val)) {
-        this.resetForm()
-      } else {
-        this.userModel = Object.assign(this.userModel, val)
-      }
-    }
   },
   methods: {
+    opened() {
+      this.userModel = Object.assign(this.userModel, this.model)
+    },
+    closed() {
+      this.resetForm()
+    },
     resetForm() {
       this.resetModel()
     },
