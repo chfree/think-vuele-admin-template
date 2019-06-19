@@ -88,6 +88,7 @@ export default {
     },
     addData() {
       this.userDetailedForm.show = true
+      this.userDetailedForm.model = null
     },
     userSearch() {
       this.loadData()
@@ -100,6 +101,7 @@ export default {
     },
     editData() {
       const currentRow = this.$refs.userTable.getCurrentRow()
+      console.log(currentRow, 'currentRow')
       if (currentRow !== null) {
         this.userDetailedForm.show = true
         this.userDetailedForm.model = currentRow
