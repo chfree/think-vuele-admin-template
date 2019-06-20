@@ -2,6 +2,7 @@ import mock from 'mockjs'
 import userApiPath from '@/api/basic/user/api-path'
 import moment from 'moment'
 import { urlParam2Json, listFilter } from './utils'
+import { isNull } from 'tennetcn-ui/lib/utils'
 
 var addList = []
 
@@ -118,8 +119,18 @@ function getUser(search) {
   }
 }
 
-function saveUser(user) {
+function addUser(user) {
   addList.push(user)
+  return {
+    arguments: {
+      ok: true
+    }
+  }
+}
+
+function editUser(user) {
+  var editUser = addList.find(item => item.id === user.id)
+  Object.assign(editUser, user)
   return {
     arguments: {
       ok: true
@@ -134,7 +145,11 @@ mock.mock(RegExp(userApiPath.list + '.*'), 'get', (options) => {
 })
 
 mock.mock(userApiPath.save, 'post', (options) => {
-  const user = Object.assign(urlParam2Json(options.body), {id: mock.Random.guid()})
-
-  return mock.mock(saveUser(user))
+  const saveData = urlParam2Json(options.body)
+  if (isNull(saveData.id)) {
+    const user = Object.assign(saveData, {id: mock.Random.guid()})
+    return mock.mock(addUser(user))
+  } else {
+    return mock.mock(editUser(saveData))
+  }
 })
