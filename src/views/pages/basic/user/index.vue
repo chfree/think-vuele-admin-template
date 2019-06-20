@@ -39,7 +39,7 @@
       <tc-table ref="userTable" :data="data.list" :columns="columns" />
     </tc-block>
     <div>
-      <tc-dialog :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="70%" height="80%">
+      <tc-dialog loading :title="userDetailedForm.title" :visible.sync="userDetailedForm.show" width="70%" height="80%">
         <detailed :model="userDetailedForm.model" @userSaveSuccess="userSaveSuccess" />
       </tc-dialog>
     </div>
