@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     resetModel() {
-      this.userModel = Object.assign(this.userModel, this.emptyModel)
+      this.userModel = Object.assign({}, this.emptyModel)
     }
   }
 }

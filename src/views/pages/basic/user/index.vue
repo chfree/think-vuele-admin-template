@@ -32,7 +32,7 @@
         <tc-button-group>
           <tc-button type="think" size="small" icon="el-icon-edit-outline" id="addData" @click="addData">新增</tc-button>
           <tc-button ref="editData" type="think" size="small" icon="el-icon-edit-outline" @click="editData">编辑</tc-button>
-          <tc-button type="think" size="small" icon="el-icon-edit-outline">查看</tc-button>
+          <tc-button type="think" size="small" icon="el-icon-edit-outline" @click="selData">查看</tc-button>
           <tc-button type="think" size="small" icon="el-icon-edit-outline">分配角色</tc-button>
         </tc-button-group>
       </div>
@@ -103,7 +103,16 @@ export default {
       const currentRow = this.$refs.userTable.getCurrentRow()
       if (currentRow !== null) {
         this.userDetailedForm.show = true
-        this.userDetailedForm.model = currentRow
+        this.userDetailedForm.model = Object.assign({}, currentRow)
+      } else {
+        this.$message.warning('必须选中一条数据')
+      }
+    },
+    selData() {
+      const currentRow = this.$refs.userTable.getCurrentRow()
+      if (currentRow !== null) {
+        this.userDetailedForm.show = true
+        this.userDetailedForm.model = Object.assign({}, currentRow, { dialogOpenMode: 'select'})
       } else {
         this.$message.warning('必须选中一条数据')
       }
