@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{userModel.dialogOpenMode}}
     <tc-form :model="userModel" :disabled="userModel.dialogOpenMode==='select'" size="small" label-width="70px">
       <div style="padding:10px;">
         <el-row :gutter="layout.gutter">

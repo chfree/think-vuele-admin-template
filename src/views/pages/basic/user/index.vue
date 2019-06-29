@@ -31,7 +31,7 @@
       <div style="margin-bottom:10px;">
         <tc-button-group>
           <tc-button type="think" size="small" icon="el-icon-edit-outline" id="addData" @click="addData">新增</tc-button>
-          <tc-button ref="editData" type="think" size="small" icon="el-icon-edit-outline" @click="editData">编辑</tc-button>
+          <tc-button type="think" size="small" icon="el-icon-edit-outline" @click="editData">编辑</tc-button>
           <tc-button type="think" size="small" icon="el-icon-edit-outline" @click="selData">查看</tc-button>
           <tc-button type="think" size="small" icon="el-icon-edit-outline">分配角色</tc-button>
         </tc-button-group>
