@@ -15,7 +15,9 @@ Vue.use(TennetcnUI)
 
 import '@/mock'
 
-window.cc = console
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+Vue.use(echarts)
 
 /* eslint-disable no-new */
 new Vue({
