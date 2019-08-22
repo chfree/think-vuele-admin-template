@@ -2,7 +2,7 @@ import mock from 'mockjs'
 import userApiPath from '@/api/basic/user/api-path'
 import moment from 'moment'
 import { urlParam2Json, listFilter } from './utils'
-import { isNull } from 'tennetcn-ui/lib/utils'
+import { isEmpty } from 'tennetcn-ui/lib/utils'
 
 var addList = []
 
@@ -146,7 +146,7 @@ mock.mock(RegExp(userApiPath.list + '.*'), 'get', (options) => {
 
 mock.mock(userApiPath.save, 'post', (options) => {
   const saveData = urlParam2Json(options.body)
-  if (isNull(saveData.id)) {
+  if (isEmpty(saveData.id)) {
     const user = Object.assign(saveData, {id: mock.Random.guid()})
     return mock.mock(addUser(user))
   } else {

@@ -2,7 +2,7 @@
  * 测试用，尽可能包含更多的信息，便于测试到更多的组件展示
  */
 import moment from 'moment'
-import { isNull } from 'tennetcn-ui/lib/utils'
+import { isEmpty } from 'tennetcn-ui/lib/utils'
 import { nations, provinces, citys, countys } from './procites.data'
 export default {
   data() {
@@ -51,7 +51,7 @@ export default {
     },
     'userModel.nation': function(newVal, oldVal) {
       this.providers.provinces = provinces.filter(item=>item.pid === newVal)
-      if (isNull(oldVal)) {
+      if (isEmpty(oldVal)) {
         return
       }
       this.userModel.province = null
@@ -64,7 +64,7 @@ export default {
     },
     'userModel.province': function(newVal, oldVal) {
       this.providers.citys = citys.filter(item=>item.pid === newVal)
-      if (isNull(oldVal)) {
+      if (isEmpty(oldVal)) {
         return
       }
       this.userModel.city = null
@@ -74,7 +74,7 @@ export default {
     },
     'userModel.city': function(newVal, oldVal) {
       this.providers.countys = countys.filter(item=>item.pid === newVal)
-      if (isNull(oldVal)) {
+      if (isEmpty(oldVal)) {
         return
       }
       this.userModel.county = null
